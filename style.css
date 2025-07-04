@@ -89,11 +89,15 @@ button {
 }
 
 #feedback {
-  min-height: 24px; /* hely az üzenetnek */
+  min-height: 24px;
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 12px;
-  color: #ef4444; /* pirosas hiba szín alapból */
+  color: #ef4444; /* alap: piros */
+}
+
+#feedback.success {
+  color: #16a34a; /* siker: zöld */
 }
 
 /* Ha sikeres üzenetet akarsz, JS-ben adhatsz pl. "success" osztályt */

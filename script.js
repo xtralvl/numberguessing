@@ -11,11 +11,13 @@ function ujVeletlenSzam() {
   veletlenSzam = Math.floor(Math.random() * 20) + 1; // 1–20 között
 }
 
-// Első induláskor generálunk egy számot
-ujVeletlenSzam();
+ujVeletlenSzam(); // első induláskor
 
 tippGomb.addEventListener('click', function () {
   const beirtSzam = Number(beirtSzamElem.value);
+
+  // Minden próbálkozás előtt töröljük a zöld stílust
+  visszajelzesElem.classList.remove('success');
 
   if (isNaN(beirtSzam) || beirtSzam < 1 || beirtSzam > 20) {
     visszajelzesElem.textContent = 'Kérlek, adj meg egy számot 1 és 20 között!';
@@ -26,11 +28,12 @@ tippGomb.addEventListener('click', function () {
   probalkozasokElem.textContent = probalkozasokSzama;
 
   if (beirtSzam < veletlenSzam) {
-    visszajelzesElem.textContent = 'A gép nagyobb számra gondolt.';
+    visszajelzesElem.textContent = 'Nagyobb számra gondoltam.';
   } else if (beirtSzam > veletlenSzam) {
-    visszajelzesElem.textContent = 'A gép kisebb számra gondolt.';
+    visszajelzesElem.textContent = 'Kisebb számra gondoltam.';
   } else {
     visszajelzesElem.textContent = `Gratulálok, eltaláltad! A szám: ${veletlenSzam} volt!`;
+    visszajelzesElem.classList.add('success'); // zöld szín hozzáadása
   }
 
   beirtSzamElem.value = '';
@@ -39,11 +42,10 @@ tippGomb.addEventListener('click', function () {
 
 ujJatekGomb.addEventListener('click', function () {
   visszajelzesElem.textContent = '';
+  visszajelzesElem.classList.remove('success'); // új játék → vissza normál szín
   probalkozasokSzama = 0;
   probalkozasokElem.textContent = probalkozasokSzama;
-
   beirtSzamElem.value = '';
   beirtSzamElem.focus();
-
-  ujVeletlenSzam(); // új szám generálása
+  ujVeletlenSzam();
 });
