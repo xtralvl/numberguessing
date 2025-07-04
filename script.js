@@ -26,9 +26,9 @@ tippGomb.addEventListener('click', function () {
   probalkozasokElem.textContent = probalkozasokSzama;
 
   if (beirtSzam < veletlenSzam) {
-    visszajelzesElem.textContent = 'Nagyobb számra gondoltam.';
+    visszajelzesElem.textContent = 'A gép nagyobb számra gondolt.';
   } else if (beirtSzam > veletlenSzam) {
-    visszajelzesElem.textContent = 'Kisebb számra gondoltam.';
+    visszajelzesElem.textContent = 'A gép kisebb számra gondolt.';
   } else {
     visszajelzesElem.textContent = `Gratulálok, eltaláltad! A szám: ${veletlenSzam} volt!`;
   }
