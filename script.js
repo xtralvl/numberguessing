@@ -2,12 +2,20 @@ const tippGomb = document.getElementById('guessBtn');
 const ujJatekGomb = document.getElementById('restartBtn');
 let probalkozasokSzama = 0;
 const probalkozasokElem = document.getElementById('tries');
-const veletlenSzam = Math.floor(Math.random() * 21); // 0-20 között, 0 is lehet
-const beirtSzamElem = document.getElementById('guessInput'); // ide kitehetjük globálisan
+const beirtSzamElem = document.getElementById('guessInput');
+const visszajelzesElem = document.getElementById('feedback');
 
-tippGomb.addEventListener('click', function() {
+let veletlenSzam;
+
+function ujVeletlenSzam() {
+  veletlenSzam = Math.floor(Math.random() * 20) + 1; // 1–20 között
+}
+
+// Első induláskor generálunk egy számot
+ujVeletlenSzam();
+
+tippGomb.addEventListener('click', function () {
   const beirtSzam = Number(beirtSzamElem.value);
-  const visszajelzesElem = document.getElementById('feedback');
 
   if (isNaN(beirtSzam) || beirtSzam < 1 || beirtSzam > 20) {
     visszajelzesElem.textContent = 'Kérlek, adj meg egy számot 1 és 20 között!';
@@ -25,19 +33,17 @@ tippGomb.addEventListener('click', function() {
     visszajelzesElem.textContent = `Gratulálok, eltaláltad! A szám: ${veletlenSzam} volt!`;
   }
 
-  // Tipp beküldése után töröljük az inputot
   beirtSzamElem.value = '';
-  // Opcionálisan fókuszáljuk is vissza az inputra
   beirtSzamElem.focus();
 });
 
-ujJatekGomb.addEventListener('click', function() {
-  const visszajelzesElem = document.getElementById('feedback');
+ujJatekGomb.addEventListener('click', function () {
   visszajelzesElem.textContent = '';
   probalkozasokSzama = 0;
   probalkozasokElem.textContent = probalkozasokSzama;
 
-  // Új játék indításakor is töröljük az inputot
   beirtSzamElem.value = '';
   beirtSzamElem.focus();
+
+  ujVeletlenSzam(); // új szám generálása
 });
