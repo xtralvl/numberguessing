@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Számkitaláló játék</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="game">
+      <h2>Számkitaláló játék</h2>
+      <input
+        type="number"
+        id="guessInput"
+        min="1"
+        max="20"
+        placeholder="Írj be egy számot 1–20 között"
+      />
+      <div class="buttons">
+        <button id="guessBtn">Tipp beküldése</button>
+        <button id="restartBtn">Új játék</button>
+      </div>
+      <p id="feedback"></p>
+      <p>Próbálkozások száma: <span id="tries">0</span></p>
+    </div>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
