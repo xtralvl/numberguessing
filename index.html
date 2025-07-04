@@ -9,6 +9,10 @@
   <body>
     <div id="game">
       <h2>Számkitaláló játék</h2>
+      <p class="jatek-utmutato">
+        Tippeld meg, milyen számra gondolt a gép 1 és 20 között!
+      </p>
+
       <input
         type="number"
         id="guessInput"
@@ -16,10 +20,12 @@
         max="20"
         placeholder="Írj be egy számot 1–20 között"
       />
+
       <div class="buttons">
         <button id="guessBtn">Tipp beküldése</button>
         <button id="restartBtn">Új játék</button>
       </div>
+
       <p id="feedback"></p>
       <p>Próbálkozások száma: <span id="tries">0</span></p>
     </div>
